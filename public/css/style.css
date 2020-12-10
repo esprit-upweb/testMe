@@ -1,0 +1,167 @@
+body {
+  overflow-x: hidden;
+  color: #505962;
+}
+
+.navbar {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.navbar-dark .navbar-nav .active > .nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show > .nav-link {
+  color: #ffb60b;
+}
+.caption {
+  width: 100%;
+  max-width: 100%;
+  position: absolute;
+  top: 38%;
+  color: #343a40;
+  text-transform: uppercase;
+}
+
+.btn-lg {
+  border-width: medium;
+  border-radius: 1rem;
+  padding: 0.6rem 1.3rem;
+}
+
+#about {
+  margin: 1.5rem auto;
+  padding-top: 2rem;
+}
+
+.landing {
+  height: 100vh;
+  z-index: -1;
+}
+/*
+.home-inner {
+  background: url("../img/desktop.jpg") no-repeat;
+}
+
+.service-inner {
+  background-image: url("../img/matrix.jpg");
+}
+*/
+
+.service-wrap {
+  z-index: -999 !important;
+}
+
+.service-background {
+  padding: 5rem 0;
+  z-index: 1000 !important;
+}
+
+/*============= FOOTER =============*/
+footer {
+  background-color: #383838;
+  padding: 1rem 2rem 3rem;
+}
+
+footer img {
+  height: 3.5rem;
+  margin: 1.5rem auto;
+}
+
+footer p,
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+ul.social {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  max-width: 16rem;
+  margin: 0 auto;
+  padding: 0;
+}
+
+ul.social li {
+  margin: 0 auto;
+}
+
+footer i {
+  font-size: 2.3rem;
+}
+
+footer i:hover {
+  color: #dc3545;
+}
+
+/*===== FIXED BACKGROUND IMG =====*/
+.fixed {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+}
+
+.fixed-background {
+  position: relative;
+  width: 100%;
+}
+
+.fixed-wrap {
+  clip: rect(0, auto, auto, 0);
+  /*clip-path: inset(10%, 10%, 10%, 10%);*/
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/*============= MEDIA QUERIES =============*/
+
+/* Devices under 1199px (xl) */
+@media (min-width: 1200px) {
+}
+/* Devices under 992px (lg) */
+@media (max-width: 992px) {
+  .caption {
+    top: 28%;
+  }
+  .caption h1,
+  .services h1 {
+    font-size: 2.1rem;
+  }
+  .caption h3,
+  .services h3 {
+    font-size: 1.5rem;
+  }
+}
+/* Devices under 768px (md) */
+@media (max-width: 768px) {
+  .caption {
+    top: 22%;
+  }
+  .caption h1,
+  .services h1 {
+    font-size: 1.9rem;
+  }
+  .caption h3,
+  .services h3 {
+    font-size: 1.2rem;
+  }
+}
+/* Devices under 576px (sm) */
+@media (max-width: 576px) {
+  .caption {
+    top: 18%;
+  }
+  .caption h1,
+  .services h1 {
+    font-size: 1.8rem;
+  }
+  .caption h3,
+  .services h3 {
+    font-size: 1.1rem;
+  }
+}
