@@ -1,11 +1,16 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseAdmin.html.twig' %}
 
-{% block title %}Post{% endblock %}
+{% block title %}User Add{% endblock %}
 
 {% block body %}
-    <h1>Post</h1>
-
-    <table class="table">
+<div class="x_panel">
+    <div class="x_title">
+        <h2>Users <small> List </small></h2>
+        <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+        <div class="row">
+            <table class="table">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -34,9 +39,13 @@
         </tbody>
     </table>
 
-    <a href="{{ path('post_index') }}">back to list</a>
+            <a href="{{ path('post_index') }}" class="btn btn-info">back to list</a>
 
-    <a href="{{ path('post_edit', {'id': post.id}) }}">edit</a>
+            <a href="{{ path('post_edit', {'slug': post.slug}) }}" class="btn btn-warning">edit</a>
 
-    {{ include('post/_delete_form.html.twig') }}
+            {{ include('post/_delete_form.html.twig') }}
+
+        </div>
+    </div>
+</div>
 {% endblock %}

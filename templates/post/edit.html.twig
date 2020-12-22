@@ -1,13 +1,20 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseAdmin.html.twig' %}
 
-{% block title %}Edit Post{% endblock %}
+{% block title %}Post Add{% endblock %}
 
 {% block body %}
-    <h1>Edit Post</h1>
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Post<small> Edit </small></h2>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <div class="row">
+                {{ include('post/_form.html.twig', {'button_label': 'Update'}) }}
 
-    {{ include('post/_form.html.twig', {'button_label': 'Update'}) }}
+            </div>
+            {#        {{ include('user/_delete_form.html.twig') }}#}
+        </div>
+    </div>
 
-    <a href="{{ path('post_index') }}">back to list</a>
-
-    {{ include('post/_delete_form.html.twig') }}
 {% endblock %}

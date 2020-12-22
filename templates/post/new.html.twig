@@ -1,11 +1,20 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseAdmin.html.twig' %}
 
-{% block title %}New Post{% endblock %}
+{% block title %}Post Add{% endblock %}
 
 {% block body %}
-    <h1>Create new Post</h1>
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Post <small> Add </small></h2>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <div class="row">
 
-    {{ include('post/_form.html.twig') }}
+                {{ include('post/_form.html.twig') }}
 
-    <a href="{{ path('post_index') }}">back to list</a>
+
+            </div>
+        </div>
+    </div>
 {% endblock %}
