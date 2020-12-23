@@ -1,0 +1,29 @@
+
+<h1> Liste des classes </h1>
+
+<table border ="1">
+<tr>
+   <th scope="row">ID</th>
+    <th scope="row">Email</th>
+    <th scope="row">NSC</th>
+studentsss
+</tr>
+    {% for student in students %}
+<tr>
+   <td>
+
+</td>
+   <td>
+{{ student.nsc }}
+</td>
+   <td>
+{{ student.email }}
+   </td>
+ 
+</tr>
+{% endfor %}
+
+</table>
+<div style="margin-left:50px;">
+<a href="{{ path('classroomList') }}"> liste des Classes</a>
+</div>
