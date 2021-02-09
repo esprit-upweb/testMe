@@ -29,7 +29,6 @@
                 {% if app.user %}
                     <li class="nav-item"><a href="#" class="nav-link">Hello:{{ app.user.username }}</a></li>
                     <li class="nav-item"><a href="{{ path('app_logout') }}" class="nav-link">Logout</a></li>
-
                 {% else %}
                     <a href="{{ path('app_login') }}" class="btn btn-outline-light ">Login</a>
                     <a href="{{ path('app_register') }}" class="btn btn-outline-light ">Register</a>

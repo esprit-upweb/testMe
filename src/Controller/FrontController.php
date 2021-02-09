@@ -16,4 +16,20 @@ class FrontController extends AbstractController
     {
         return $this->render('front/index.html.twig');
     }
+
+    public static function getSubscribedServices(): array
+    {
+        return array_merge(parent::getSubscribedServices(), [
+            'app.text_format' => 'App\Services\TextFormat',
+        ]);
+    }
+
+    /**
+     * @Route("/service", name="app_service_text_format")
+     */
+    public function indexAction() {
+
+        $service = $this->get('app.text_format');
+        return new Response($service->removeSpecialChar('esprit $ *^$ è ; ?'));
+    }
 }
