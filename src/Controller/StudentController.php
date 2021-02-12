@@ -11,6 +11,7 @@ use App\Entity\Classroom;
 use App\Repository\StudentRepository;
 use App\Repository\ClassroomRepository;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 class StudentController extends AbstractController
 {
@@ -120,4 +121,61 @@ public function classroomStudents($id)
             'students' => $students,
         ]);
 }
+    /**
+     * @Route("/AllStudents", name="AllStudents")
+     */
+    public function AllStudents(Request $request, NormalizerInterface $Normalizer )
+    {
+        $repository = $this->getDoctrine()->getRepository(Student::class);
+        $students = $repository->findAll();
+
+        $jsonContent = $Normalizer->normalize($students, 'json',['groups'=>'post:read']);
+        // return $this->render('student/allStudentJSON.html.twig', [
+        //     'data'=> $jsonContent,
+        //]);
+        return new Response(json_encode($jsonContent));
+
+    }
+
+    /**
+     * @Route("/addStudentJSON/new", name="addStudentJSON")
+     */
+    public function addStudentJSON(Request $request,NormalizerInterface $Normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $student = new Student();
+        $student->setNsc($request->get('nsc'));
+        $student->SetEmail($request->get('email'));
+        $em->persist($student);
+        $em->flush();
+        $jsonContent = $Normalizer->normalize($student, 'json',['groups'=>'post:read']);
+        return new Response(json_encode($jsonContent));;
+    }
+
+    /**
+     * @Route("/updateStudentJSON/{nsc}", name="updateStudentJSON")
+     */
+    public function updateStudentJSON(Request $request,NormalizerInterface $Normalizer,$nsc)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $student = $em->getRepository(Student::class)->find($nsc);
+        $student->setNsc($request->get('nsc'));
+        $student->SetEmail($request->get('email'));
+        $em->flush();
+        $jsonContent = $Normalizer->normalize($student, 'json',['groups'=>'post:read']);
+        return new Response("Information updated successfully".json_encode($jsonContent));;
+    }
+    /**
+     * @Route("/deleteStudentJSON/{nsc}", name="deleteStudentJSON")
+     */
+    public function deleteStudentJSON(Request $request,NormalizerInterface $Normalizer,$nsc)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $student = $em->getRepository(Student::class)->find($nsc);
+        $em->remove($student);
+        $em->flush();
+        $jsonContent = $Normalizer->normalize($student, 'json',['groups'=>'post:read']);
+        return new Response("Student deleted successfully".json_encode($jsonContent));
+    }
 }

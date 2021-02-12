@@ -30,6 +30,6 @@ class FrontController extends AbstractController
     public function indexAction() {
 
         $service = $this->get('app.text_format');
-        return new Response($service->removeSpecialChar('esprit $ *^$ è ; ?'));
+        return new Response($service->removeSpecialChar('******esprit $******* *^$ è ; ?'));
     }
 }
